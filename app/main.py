@@ -25,7 +25,7 @@ def home():
 
 # createUser
 @app.post("/user_create")
-def CreateUser(user: schemas.UserformSchema, db=Session(get_db)):
+def CreateUser(user: schemas.UserformSchema, db :Session=(get_db)):
     db_user = models.UserForm(name=user.name, email=user.email, message=user.message)
     db.add(db_user)
     db.commit()
